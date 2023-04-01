@@ -2,10 +2,19 @@ const toDoForm = document.querySelector('#todo-form');
 const toDoInput = document.querySelector('#todo-form input');
 const toDoList = document.querySelector('#todo-list');
 
+function paintToDo(newTodo) {
+  const li = document.createElement('li');
+  const span = document.createElement('span');
+  li.appendChild(span);
+  span.innerHTML = newTodo;
+  toDoList.appendChild(li);
+}
+
 function handleToDoSubmit(event) {
   event.preventDefault();
-  const newToDo = toDoInput.value;
+  const newTodo = toDoInput.value;
   toDoInput.value = '';
+  paintToDo(newTodo);
 }
 
 toDoForm.addEventListener('submit', handleToDoSubmit);
