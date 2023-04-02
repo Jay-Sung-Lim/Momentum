@@ -1,5 +1,19 @@
-.hidden {
-  display: none;
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=Delicious+Handrawn&family=Noto+Sans+KR:wght@300;400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 img {
@@ -11,5 +25,186 @@ img {
   right: 0px;
   bottom: 0px;
   z-index: -1;
-  opacity: 50%;
+  filter: brightness(50%);
+}
+
+button {
+  background: none;
+  color: whitesmoke;
+  border: none;
+  font-size: 16px;
+}
+
+button:hover {
+  color: tomato;
+}
+
+.hidden {
+  display: none;
+}
+
+/* login-form */
+
+#login-form {
+  text-align: center;
+}
+
+#login-form input[type='text'] {
+  color: whitesmoke;
+  width: 280px;
+  font-family: 'Alkatra', cursive;
+  font-size: 200%;
+  text-align: center;
+  line-height: 50px;
+  border: none;
+  border-bottom: solid 3px whitesmoke;
+  background: transparent;
+  outline: none;
+  transition: transform 0.3s ease-in;
+}
+
+#todo-form input[type='text'] {
+  color: whitesmoke;
+  width: 400px;
+  font-family: 'Alkatra', cursive;
+  font-size: 200%;
+  text-align: center;
+  line-height: 50px;
+  border: none;
+  outline: none;
+  border-bottom: solid 3px whitesmoke;
+  background: transparent;
+  transition: transform 0.3s ease-in;
+}
+
+#login-form input::placeholder,
+#todo-form input::placeholder {
+  color: #dbdfe9;
+}
+
+/* todo-list */
+#todo-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+  padding-left: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+#todo-list li {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+#todo-list li button {
+  margin-left: 8px;
+  font-size: 16px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+#todo-list li button:hover {
+  color: #cc0000;
+}
+
+/* greetings */
+#greeting {
+  margin: 0;
+  font-size: 100px;
+  text-align: center;
+  font-family: 'Alkatra', cursive;
+}
+
+/* clock */
+#clock {
+  font-size: 120px;
+  margin: 100px;
+  text-align: center;
+  line-height: 1;
+}
+
+#clock::after {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 100px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+#clock::before {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 60px;
+  margin: 0 auto;
+  background-color: #fff;
+  transform-origin: bottom center;
+  animation: tick-tock 1s ease-in-out infinite;
+}
+
+@keyframes tick-tock {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+/* quote */
+#quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  margin-top: 20px;
+  font-family: 'Alkatra', cursive;
+}
+
+#quote span {
+  font-size: 30px;
+  text-align: center;
+}
+
+#quote span:last-child {
+  font-size: 20px;
+  font-style: italic;
+}
+
+/* weather */
+#weather {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+#weather span:first-child::before {
+  content: '🌡️';
+}
+
+#weather span:last-child::before {
+  content: '🌎';
+}
+
+#weather span {
+  display: flex;
+  align-items: center;
+}
+
+#weather span:last-child {
+  justify-content: flex-end;
 }

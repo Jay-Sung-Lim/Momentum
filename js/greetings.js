@@ -14,8 +14,21 @@ function onLoginBtnSubmit(event) {
 }
 
 function paintGreetings(username) {
-  greeting.innerText = `Hello ${username}`;
+  greeting.innerHTML = `Hello ${username}`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
+
+  const deleteButton = document.createElement('button');
+  deleteButton.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
+  deleteButton.addEventListener('click', onDeleteBtnClick);
+  greeting.appendChild(deleteButton);
+}
+
+function onDeleteBtnClick(event) {
+  localStorage.removeItem(USERNAME_KEY);
+  greeting.classList.add(HIDDEN_CLASSNAME);
+  greeting.innerText = '';
+  loginForm.classList.remove(HIDDEN_CLASSNAME);
+  loginInput.value = '';
 }
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
